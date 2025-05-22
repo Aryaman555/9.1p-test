@@ -5,10 +5,16 @@ import static org.junit.jupiter.api.Assertions.*;
 
 public class TaskServiceTest {
 
-    @Test
-    public void testGetSubmissionStatus_Submitted() {
-        TaskService service = new TaskService();
-        String status = service.getSubmissionStatus("T101");  // Function doesn't exist yet
-        assertEquals("Submitted", status);
-    }
+	@Test
+	public void testGetSubmissionStatus_NotSubmitted() {
+	    TaskService service = new TaskService();
+	    assertEquals("Not Submitted", service.getSubmissionStatus("T102"));
+	}
+
+	@Test
+	public void testGetSubmissionStatus_Unknown() {
+	    TaskService service = new TaskService();
+	    assertEquals("Not Found", service.getSubmissionStatus("T999"));
+	}
+
 }
